@@ -10,9 +10,24 @@ app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
 const users = [
-  { id: 1, email: "korben@fhloston.com", password: "multipass" },
-  { id: 2, email: "leeloo@fhloston.com", password: "leeloo123" },
-  { id: 3, email: "ruby@fhloston.com", password: "greenrocks" },
+  {
+    id: 1,
+    email: "korben@fhloston.com",
+    password: "multipass",
+    picture: "/images/korben.png",
+  },
+  {
+    id: 2,
+    email: "leeloo@fhloston.com",
+    password: "leeloo123",
+    picture: "/images/leeloo.png",
+  },
+  {
+    id: 3,
+    email: "ruby@fhloston.com",
+    password: "greenrocks",
+    picture: "/images/ruby.png",
+  },
 ];
 
 app.post("/api/login", (req, res) => {
@@ -28,7 +43,7 @@ app.post("/api/login", (req, res) => {
     expiresIn: "1h",
   });
 
-  res.json({ token, user: { id: user.id, email: user.email } });
+  res.json({ token, user: { id: user.id, email: user.email, picture: user.picture } });
 });
 
 app.listen(PORT, () => {

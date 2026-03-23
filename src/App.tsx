@@ -5,17 +5,24 @@ import { ProtectedRoute } from './features/auth/ProtectedRoute';
 
 function App() {
     return (
-        <Routes>
-            <Route
-                path="/"
-                element={
-                    <ProtectedRoute>
-                        <DashboardPage />
-                    </ProtectedRoute>
-                }
+        <div className="min-h-screen bg-sky-100">
+            <img
+                src="/logo.png"
+                alt="Fhloston Paradise"
+                className="fixed left-4 top-4 h-44"
             />
-            <Route path="/login" element={<LoginPage />} />
-        </Routes>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <ProtectedRoute>
+                            <DashboardPage />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route path="/login" element={<LoginPage />} />
+            </Routes>
+        </div>
     );
 }
 

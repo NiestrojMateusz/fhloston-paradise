@@ -4,6 +4,7 @@ const USER_KEY = 'user';
 interface User {
     id: number;
     email: string;
+    picture: string;
 }
 
 interface Auth {
